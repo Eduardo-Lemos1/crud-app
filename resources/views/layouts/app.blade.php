@@ -12,6 +12,11 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/age.js') }}" defer></script>
+    
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 
     <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
     <script src="{{asset('js/jquery.mask.min.js')}}"></script>
@@ -59,7 +64,7 @@
                         @else
 
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('post.list') }}">{{ __('Posts') }}</a>
+                                <a class="nav-link" href="{{ route('post.list') }}">{{ __('Registers') }}</a>
                             </li>
 
                             <li class="nav-item dropdown">
@@ -100,5 +105,24 @@
             @yield('content')
         </main>
     </div>
+
+    <div id="confirm_modal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">{{__("Confirm")}}</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p>{{__("Do you really want to delete this record?")}}</p>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{__("Cancel")}}</button>
+              <button type="button" class="btn btn-danger" onclick="confirmButton()">{{__("Yes")}}</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
 </body>
 </html>

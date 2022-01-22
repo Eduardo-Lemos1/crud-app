@@ -5,14 +5,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Posts') }}</div>
+                <div class="card-header">{{ __('New Register') }}</div>
 
                 <div class="card-body">
 
                     @if ($data->id == "")
-                        <form method="POST" action="{{ route('post.store') }}">
+                        <form id="main" method="POST" action="{{ route('post.store') }}">
                     @else
-                        <form method="POST" action="{{ route('post.update',$data) }}">
+                        <form id="main" method="POST" action="{{ route('post.update',$data) }}">
                         @method('PUT')
                     @endif
 
@@ -115,21 +115,33 @@
                                 @enderror
                             </div>
                         </div>
-
+                    </form>
                         <div class="row mb-0">
                             <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button type="submit" class="btn btn-primary" form="main">
                                     {{ __('Save') }}
                                 </button>
 
                                 <a class="btn btn-secondary" href="{{route('post.create')}}">
-                                    {{__('New Post')}}
+                                    {{__('New Register')}}
                                 </a>
+
+                                @if ($data->id != "")
+                                <form name='delete' action="{{route('post.destroy',$data)}}"
+                                    method="post"
+                                    style='display: inline-block;'>
+                                    @csrf
+                                    @method("DELETE")
+                                    <button type="button" onclick="confirmDeleteModal(this)" class="btn btn-danger">
+                                        {{ __('Delete') }}
+                                    </button>
+                                </form>
+                                @endif
 
 
                             </div>
                         </div>
-                    </form>
+                    
                 </div>
             </div>
         </div>

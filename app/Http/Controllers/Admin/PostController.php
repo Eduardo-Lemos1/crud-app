@@ -10,7 +10,12 @@ use App\Http\Requests\PostRequest;
 class PostController extends Controller
 {
     public function list(Request $request){
-        return view("admin.posts.index", ["list"=>Post::paginate(3)]);
+        $pagination = Post::orderBy("name");
+
+        if (isset($request->busca) && $request->busca != "")
+            $pagination->where("name","like","%$request->busca%");
+        
+        return view("admin.posts.index", ["list"=>$pagination->paginate(3)]);
     }
 
     public function create(){
