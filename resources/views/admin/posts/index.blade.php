@@ -9,6 +9,7 @@
 
                 <div class="card-body">
                     <form method="GET" action="{{ route('post.list') }}">
+                        
                         @csrf
 
                         <div class="row mb-3">

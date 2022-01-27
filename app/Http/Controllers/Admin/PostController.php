@@ -53,4 +53,5 @@ class PostController extends Controller
         return redirect()->back()->with("success",__("Data updated!"));
     }
 
+    
 }

@@ -132,7 +132,8 @@
                                     style='display: inline-block;'>
                                     @csrf
                                     @method("DELETE")
-                                    <button type="button" onclick="confirmDeleteModal(this)" class="btn btn-danger">
+                                    <button type="button" onclick="confirmDeleteModal(this)" 
+                                            class="btn btn-danger">
                                         {{ __('Delete') }}
                                     </button>
                                 </form>
